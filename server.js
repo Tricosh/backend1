@@ -19,6 +19,7 @@ async function getDbCollection(dbAddress, dbName, dbCollectionName){
 app.get('/books', async function(req, res) {
 	const collection = await getDbCollection('mongodb://127.0.0.1', 'mylibrary', 'books');//вызов функции
 	const data = await collection.find({}).toArray(); //поиск записей в табличке books
+	console.log(data);
 	res.send(data);
 });
 
